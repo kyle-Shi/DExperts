@@ -257,4 +257,3 @@ dependencies:
     - wormhole==0.1.0
     - xxhash==2.0.0
     - zope-interface==5.1.2
-prefix: /gscratch/cse/alisaliu/miniconda3/envs/dexperts
