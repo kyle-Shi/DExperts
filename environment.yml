@@ -1,4 +1,3 @@
-name: dexperts
 channels:
   - pytorch
   - anaconda
