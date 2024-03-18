@@ -2,6 +2,7 @@
 */.ipynb_checkpoints/*
 *.py[cod]
 .vscode/
+.ipynb_checkpoints/
 
 scripts/sbatch_scripts
 human_eval/sentiment/old_comparisons
