@@ -50,7 +50,7 @@ def collate(dataset: Optional[pd.DataFrame], generations: List[str], responses: 
               type=click.Choice(ALLOWED_MODELS))
 @click.option('--toxic-model', type=str, default=None, help='Anti-expert for DExperts')
 @click.option('--nontoxic-model', type=str, default=None, help='Expert for DExperts')
-@click.option('--perspective-rate-limit', default=25)
+@click.option('--perspective-rate-limit', type=int, default=25)
 @click.option('--n', default=25, help='Number of samples to generate for each prompt. When used with --eos')
 @click.option('--max-tokens', default=20, help='Number of tokens (usually BPE) to generate for each prompt.')
 @click.option('--batch-size', default=32)

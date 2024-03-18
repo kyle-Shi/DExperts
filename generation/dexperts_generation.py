@@ -49,6 +49,7 @@ class DExpertsGeneration(GPT2Generation):
                  prompt: Union[str, List[str]],
                  max_len: int = 20,
                  sample: bool = True,
+                #  sample: bool = False,
                  filter_p: float = 0.9,
                  k: int = 0,
                  p: float = 1.0,

@@ -12,6 +12,14 @@ from tqdm.auto import tqdm
 from utils.constants import PERSPECTIVE_API_ATTRIBUTES, PERSPECTIVE_API_KEY
 from utils.utils import batchify, load_cache
 
+import httplib2
+proxy_info = httplib2.ProxyInfo(proxy_type=httplib2.socks.PROXY_TYPE_HTTP, proxy_host="127.0.0.1", proxy_port=7890)
+http = httplib2.Http(timeout=10, proxy_info=proxy_info, disable_ssl_certificate_validation=False)
+
+# http = httplib2.Http(proxy_info=httplib2.ProxyInfo(
+#             httplib2.socks.PROXY_TYPE_HTTP, "127.0.0.1", 7890
+# ))
+
 
 def unpack_scores(response_json: dict) -> Optional[Tuple[dict, dict]]:
     if not response_json:
@@ -114,7 +122,8 @@ class PerspectiveAPI:
     @staticmethod
     def _make_service(api_key: str):
         # Generate API client object dynamically based on service name and version
-        return discovery.build('commentanalyzer', 'v1alpha1', developerKey=api_key)
+        # return discovery.build('commentanalyzer', 'v1alpha1', developerKey=api_key, http=http)
+        return discovery.build('commentanalyzer', 'v1alpha1', developerKey=api_key, static_discovery=False, http=http)
 
     @staticmethod
     def _make_request(text: str, service):
