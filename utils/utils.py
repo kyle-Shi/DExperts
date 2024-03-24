@@ -6,7 +6,7 @@ import torch
 from tqdm.auto import tqdm
 import os
 
-T = TypeVar('T')
+T = TypeVar("T")
 
 
 def ensure_dir(d):
@@ -47,5 +47,5 @@ def load_jsonl(file: Union[str, Path]) -> Iterable[Any]:
 def load_cache(file: Path):
     if file.exists():
         with file.open() as f:
-            for line in tqdm(f, desc=f'Loading cache from {file}'):
+            for line in tqdm(f, desc=f"Loading cache from {file}"):
                 yield json.loads(line)
